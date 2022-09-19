@@ -27,7 +27,7 @@ jobs:
         run: docker build . --file Dockerfile --tag int3lligentbra1n/devops:$DEFAULT_TAG
 
       - name: Docker Push
-        run: docker push igorceee/docker-kii-project:$DEFAULT_TAG
+        run: docker push int3lligentbra1n/devops:$DEFAULT_TAG
 
       - name: Build the Docker Image Latest
         run: docker build . --file Dockerfile --tag int3lligentbra1n/devops:latest
