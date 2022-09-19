@@ -5,15 +5,15 @@ networks:
 
 services:
     nginx:
+        build:
+            context: .
+            dockerfile: Web.Dockerfile
         image: nginx:stable-alpine
         container_name: nginx
         restart: unless-stopped
         tty: true
         ports:
             - "8088:80"
-        volumes:
-            - ./:/var/www/html
-            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
         depends_on:
             - app
             - mysql
@@ -50,7 +50,7 @@ services:
         volumes:
             - ./:/var/www/html
         ports:
-            - "9000:9000"
+            - "9010:9000"
         networks:
             - laravel
 volumes:
