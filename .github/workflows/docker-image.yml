@@ -1,0 +1,36 @@
+name: Docker Image CI
+
+env:
+  DEFAULT_TAG: ${{ github.run_id }}-${{ github.run_attempt }}
+  
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: docker login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - name: Build the Docker Image
+        run: docker build . --file Dockerfile --tag int3lligentbra1n/devops:$DEFAULT_TAG
+
+      - name: Docker Push
+        run: docker push igorceee/docker-kii-project:$DEFAULT_TAG
+
+      - name: Build the Docker Image Latest
+        run: docker build . --file Dockerfile --tag int3lligentbra1n/devops:latest
+
+      - name: Docker Push Latest
+        run: docker push int3lligentbra1n/devops:latest
