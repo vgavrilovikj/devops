@@ -31,6 +31,9 @@ jobs:
 
       - name: Build the Docker Image Latest
         run: docker build . --file Dockerfile --tag int3lligentbra1n/devops:latest
+        
+      - name: Build Docker Compose
+        run: docker-compose -f "docker-compose.yml" up -d --build
 
       - name: Docker Push Latest
         run: docker push int3lligentbra1n/devops:latest
