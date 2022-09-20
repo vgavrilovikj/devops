@@ -2,34 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: devops
-  labels:
-    tier: backend
 spec:
   selector:
     matchLabels:
       app: devops
-      tier: backend
   template:
     metadata:
       labels:
         app: devops
-        tier: backend
     spec:
-      volumes:
-        - name: dir
-          hostPath:
-            path: /code
       containers:
-        - name: devops
+        - name: app
           image: int3lligentbra1n/devops:latest
-          volumeMounts:
-            - name: dir
-              mountPath: /code
-          command:
-            - cp
-            - "-r"
-            - "/var/www/."
-            - "/code/app"
+          ports:
+            - containerPort: 80
           envFrom:
             - configMapRef:
                 name: devops-map
