@@ -4,6 +4,13 @@ metadata:
   name: arbitrary
 
 resources:
-  - deployment.yaml
-  - service.yaml
-  - configMap.yaml
+  - nginx-deployment.yaml
+  - nginx-service.yaml
+  - mysql-deployment.yaml
+  - mysql-service.yaml
+  - mysql-claim1-persistentvolumeclaim.yaml
+  - dbdata-persistentvolumeclaim.yaml
+  - app-deployment.yaml
+  - app-service.yaml
+  - app-claim0-persistentvolumeclaim.yaml
+  - laravel-networkpolicy.yaml

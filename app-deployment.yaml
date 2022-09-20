@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\Users\vikto\OneDrive\Desktop\test\kompose.exe convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: app
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\Users\vikto\OneDrive\Desktop\test\kompose.exe convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/laravel: "true"
+        io.kompose.service: app
+    spec:
+      containers:
+        - image: app
+          name: app
+          ports:
+            - containerPort: 9000
+          resources: {}
+          tty: true
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: app-claim0
+          workingDir: /var/www/html
+      restartPolicy: Always
+      volumes:
+        - name: app-claim0
+          persistentVolumeClaim:
+            claimName: app-claim0
+status: {}
