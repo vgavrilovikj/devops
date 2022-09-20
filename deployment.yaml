@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops
+spec:
+  selector:
+  matchLabels:
+    app: devops
+  template:
+  metadata:
+    labels:
+      app: devops
+  spec:
+    containers:
+      - name: app
+        image: int3lligentbra1n/devops:latest
+        ports:
+          - name: http
+            containerPort: 8080
+            protocol: TCP
