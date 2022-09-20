@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: devops-ingress
+spec:
+  tls:
+    - secretName: secret-tls
+  rules:
+    - host: devops.com
+      http:
+        paths:
+          - backend:
+              serviceName: devops-service
+              servicePort: 80

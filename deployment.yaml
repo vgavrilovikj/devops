@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: devops-deployment
 spec:
-  replicas: 3
   selector:
     matchLabels:
       deployment: devops
@@ -16,35 +15,7 @@ spec:
         - name: app
           image: int3lligentbra1n/devops:latest
           ports:
-            - containerPort: 8080
-          env:
-            - name: APP_KEY
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-map
-                  key: APP_KEY
-            - name: DB_CONNECTION
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-map
-                  key: DB_CONNECTION
-            - name: DB_DATABASE
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-map
-                  key: DB_DATABASE
-            - name: DB_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-map
-                  key: DB_HOST
-            - name: DB_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-map
-                  key: DB_PASSWORD
-            - name: DB_USERNAME
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-map
-                  key: DB_USERNAME
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: devops-map
