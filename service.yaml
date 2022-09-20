@@ -1,12 +1,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: devops-lb
+  name: devops
+  labels:
+    tier: backend
 spec:
   selector:
     app: devops
+    tier: backend
   type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 80
+      port: 9000

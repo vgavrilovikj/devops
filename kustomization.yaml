@@ -4,6 +4,9 @@ metadata:
   name: arbitrary
 
 resources:
+  - nginx_configMap.yaml
+  - nginx_deployment.yaml
+  - nginx_service.yaml
   - deployment.yaml
   - service.yaml
   - configMap.yaml
