@@ -48,17 +48,3 @@ spec:
                 configMapKeyRef:
                   name: devops-map
                   key: DB_USERNAME
-        - image: mysql:5.6
-          name: mysql
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: secret
-          ports:
-            - containerPort: 3306
-              name: mysql
-          volumeMounts:
-            - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql
-          volumes:
-            - name: mysql-persistent-storage
-              emptyDir: {}
