@@ -26,7 +26,7 @@ spec:
         io.kompose.service: app
     spec:
       containers:
-        - image: app
+        - image: int3lligentbra1n/devops:latest
           name: app
           ports:
             - containerPort: 9000
