@@ -13,10 +13,9 @@ spec:
     spec:
       containers:
         - name: app
-          image: gcr.io/PROJECT_ID/IMAGE:TAG
-          imagePullPolicy: Always
+          image: nginx:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           envFrom:
             - configMapRef:
                 name: devops-map
