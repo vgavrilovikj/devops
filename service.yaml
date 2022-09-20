@@ -1,11 +1,11 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: devops-service
+  name: devops
 spec:
   selector:
-    deployment: devops
+    app: devops
   type: LoadBalancer
   ports:
     - port: 80
-      targetPort: 80
+      targetPort: 8088

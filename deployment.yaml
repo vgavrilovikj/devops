@@ -5,17 +5,16 @@ metadata:
 spec:
   selector:
     matchLabels:
-      deployment: devops
+      app: devops
   template:
     metadata:
       labels:
-        deployment: devops
+        app: devops
     spec:
       containers:
         - name: app
-          image: int3lligentbra1n/devops:latest
-          ports:
-            - containerPort: 80
+          image: gcr.io/PROJECT_ID/IMAGE:TAG
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: devops-map
