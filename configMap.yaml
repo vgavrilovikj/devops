@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: devops-map
+data:
+  APP_DEBUG: "false"
+  APP_ENV: production
+  APP_KEY: "base64:4+mfo0O2hkFIkM3uQ3GQ3X/a1XFSvYnZpYt8cu3eavE="
+  APP_NAME: "Laravel"
+  LOG_LEVEL: debug
+  APP_URL: http://localhost
+  BROADCAST_DRIVER: pusher
+  CACHE_DRIVER: file
+  QUEUE_CONNECTION: sync
+  SESSION_DRIVER: database
+  DB_CONNECTION: mysql
+  DB_DATABASE: devops
+  DB_HOST: mysql
+  DB_PASSWORD: secret
+  DB_PORT: "3306"
+  DB_USERNAME: devops
