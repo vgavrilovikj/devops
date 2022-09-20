@@ -4,12 +4,12 @@ metadata:
   name: devops
 spec:
   selector:
-  matchLabels:
-    app: devops
-  template:
-  metadata:
-    labels:
+    matchLabels:
       app: devops
+  template:
+    metadata:
+      labels:
+        app: devops
   spec:
     containers:
       - name: app
