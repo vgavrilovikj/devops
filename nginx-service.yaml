@@ -8,15 +8,14 @@ metadata:
   labels:
     io.kompose.service: nginx
   name: nginx
-type: LoadBalancer
 spec:
-  select:
-    app: app
+  type: LoadBalancer
   ports:
     - name: "8088"
       port: 8088
       targetPort: 80
   selector:
+    app: app
     io.kompose.service: nginx
 status:
   loadBalancer: {}
