@@ -1,0 +1,9 @@
+php:
+  repository: "int3lligentbra1n/devops"
+  tag: "latest"
+  fpmEnabled: false
+  envVars:
+    - name: APP_ENV
+      value: local
+    - name: APP_DEBUG
+      value: true
